@@ -32,7 +32,7 @@ class ClockAngleTest extends TestCase
         );
     }
 
-	public function testSetTimeAndGetTime()
+    public function testSetTimeAndGetTime()
     {
         $clockAngle = new ClockAngle();
         $time = '02:20';
