@@ -53,9 +53,9 @@ class ClockAngleCommand extends Command
 			        break;
 			    default:
 			        $output->writeln('The Hour Angle is: ' . $clockAngle->getHourAngle());
-				$output->writeln('The Minute Angle is: ' . $clockAngle->getMinuteAngle());
-				$output->writeln('The Inner Angle is: ' . $clockAngle->getInnerAngleBetweenHands());
-				$output->writeln('The Outter Angle is: ' . $clockAngle->getOutterAngleBetweenHands());
+				    $output->writeln('The Minute Angle is: ' . $clockAngle->getMinuteAngle());
+				    $output->writeln('The Inner Angle is: ' . $clockAngle->getInnerAngleBetweenHands());
+				    $output->writeln('The Outter Angle is: ' . $clockAngle->getOutterAngleBetweenHands());
 			}
 			return true;
 		}
