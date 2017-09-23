@@ -1,5 +1,5 @@
 {
-	"name": "clock angle",
+    "name": "clock angle",
     "description": "Clock Angle Problem.",
     "type": "project",
     "require": {
