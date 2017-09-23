@@ -1,0 +1,22 @@
+{
+	"name": "clock angle",
+    "description": "Clock Angle Problem.",
+    "type": "project",
+    "require": {
+    	"php": ">=7",
+        "symfony/console": "^3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.7"
+    },
+    "autoload": {
+     	 "psr-4": {
+     	 	"Clock\\": "src/"
+     	}         
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
