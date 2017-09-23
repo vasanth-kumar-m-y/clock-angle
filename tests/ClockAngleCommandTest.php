@@ -8,7 +8,7 @@ use Symfony\Component\Console\Tester\CommandTester;
 class ClockAngleCommandTest extends TestCase
 {
 
-	public function testClockAngleCommandWithTime()
+    public function testClockAngleCommandWithTime()
     {
 		$application = new Application();
         $application->add(new ClockAngleCommand());
