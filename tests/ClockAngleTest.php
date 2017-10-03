@@ -6,6 +6,13 @@ use Clock\ClockAngle;
 class ClockAngleTest extends TestCase
 {
 
+    protected $clockAngle;
+
+    protected function setUp()
+    {
+        $this->clockAngle = new ClockAngle();
+    }
+
     /**
      * @param string $time to be validated
      *
@@ -13,8 +20,7 @@ class ClockAngleTest extends TestCase
      */
     public function testValidateTimeReturnsValidTime($time)
     {
-        $clockAngle = new ClockAngle();
-        $result = $clockAngle->validateTime($time);
+        $result = $this->clockAngle->validateTime($time);
 
         $this->assertTrue($result);
     }
@@ -34,93 +40,91 @@ class ClockAngleTest extends TestCase
 
     public function testSetTimeAndGetTime()
     {
-        $clockAngle = new ClockAngle();
         $time = '02:20';
-        if (!$clockAngle->validateTime($time)) {
+        if (!$this->clockAngle->validateTime($time)) {
             $this->assertFalse('Invalid Input!: ' . $time);
         }
-        $clockAngle->setTime($time);
+        $this->clockAngle->setTime($time);
 
-        $this->assertEquals($time, $clockAngle->getTime());
+        $this->assertEquals($time, $this->clockAngle->getTime());
 	}
 
     public function testHourAndMinute()
     {
-        $clockAngle = new ClockAngle();
         $time = '02:20';
-        if (!$clockAngle->validateTime($time)) {
+        if (!$this->clockAngle->validateTime($time)) {
             $this->assertFalse('Invalid Input!: ' . $time);
         }
-        $clockAngle->setTime($time);
+        $this->clockAngle->setTime($time);
         $expectedOutput = ['hour' => '02', 'minute' => '20'];
-        $result = $clockAngle->getHourAndMinute();
+        $result = $this->clockAngle->getHourAndMinute();
 
         $this->assertEquals($expectedOutput, $result);
     } 
 
     public function testHourAngle()
     {
-        $clockAngle = new ClockAngle();
         $time = '02:20';
-        if (!$clockAngle->validateTime($time)) {
+        if (!$this->clockAngle->validateTime($time)) {
             $this->assertFalse('Invalid Input!: ' . $time);
         }
-        $clockAngle->setTime($time);
-        $result = $clockAngle->getHourAngle();
+        $this->clockAngle->setTime($time);
+        $result = $this->clockAngle->getHourAngle();
 
         $this->assertEquals(70, $result);
     }
 
     public function testMinuteAngle()
     {
-        $clockAngle = new ClockAngle();
         $time = '02:20';
-        if (!$clockAngle->validateTime($time)) {
+        if (!$this->clockAngle->validateTime($time)) {
             $this->assertFalse('Invalid Input!: ' . $time);
         }
-        $clockAngle->setTime($time);
-        $result = $clockAngle->getMinuteAngle();
+        $this->clockAngle->setTime($time);
+        $result = $this->clockAngle->getMinuteAngle();
 
         $this->assertEquals(120, $result);
     }
 
     public function testInnerAngle()
     {
-        $clockAngle = new ClockAngle();
         $time = '02:20';
-        if (!$clockAngle->validateTime($time)) {
+        if (!$this->clockAngle->validateTime($time)) {
             $this->assertFalse('Invalid Input!: ' . $time);
         }
-        $clockAngle->setTime($time);
-        $result = $clockAngle->getInnerAngleBetweenHands();
+        $this->clockAngle->setTime($time);
+        $result = $this->clockAngle->getInnerAngleBetweenHands();
 
         $this->assertEquals(50, $result);
     }
 
     public function testOutterAngle()
     {
-        $clockAngle = new ClockAngle();
         $time = '02:20';
-        if (!$clockAngle->validateTime($time)) {
+        if (!$this->clockAngle->validateTime($time)) {
             $this->assertFalse('Invalid Input!: ' . $time);
         }
-        $clockAngle->setTime($time);
-        $result = $clockAngle->getOutterAngleBetweenHands();
+        $this->clockAngle->setTime($time);
+        $result = $this->clockAngle->getOutterAngleBetweenHands();
 
         $this->assertEquals(310, $result);
     }
 
     public function testSuperImposition()
     {
-        $clockAngle = new ClockAngle();
         $time = '02:20';
-        if (!$clockAngle->validateTime($time)) {
+        if (!$this->clockAngle->validateTime($time)) {
             $this->assertFalse('Invalid Input!: ' . $time);
         }
-        $clockAngle->setTime($time);
-        $result = $clockAngle->checkSuperImposition();
+        $this->clockAngle->setTime($time);
+        $result = $this->clockAngle->checkSuperImposition();
 
         $this->assertTrue($result);
+    }
+
+    protected function tearDown()
+    {
+        unset($this->clockAngle); 
     }
 
 }
